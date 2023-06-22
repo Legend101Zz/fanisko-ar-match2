@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fanisko</title>
+    <link rel="stylesheet" href="css/swiper.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/styleUI.css" />
+  </head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="./js/swiper.min.js"></script>
+  <body>
+    <div class="wrapper">
+      <div class="ui-wrapper">
+        <!-- <div class="headerContainer">
+          <img src="./assets/Mask-Group -8@3x.png" />
+        </div> -->
+        <div class="countryContainer">
+          <div class="inningsOneCountryWrapper">
+            <p class="inningsOneCountry" id="inningsOneCountry"></p>
+          </div>
+          <div class="inningsTwoCountryWrapper">
+            <p class="inningsTwoCountry" id="inningsTwoCountry"></p>
+          </div>
+        </div>
+        <div class="teamScoreContainer">
+          <div class="countryFlag">
+            <div class="teamFlagContainer">
+              <img class="teamFlag" id="teamFlag" />
+            </div>
+            <div class="scoreWrapper">
+              <h1 class="teamScore" id="teamScore"></h1>
+              <p class="overs" id="overs"></p>
+            </div>
+          </div>
+        </div>
+        <!-- PLAYER SCROLLER -->
+        <!-- <div class="playerScrollerContainer">
+                        <div class="inningsContainer">
+                            <div class="firstInningsPlayer" id="firstInningsPlayer">
+                            </div>
+                            <div class="secondInningsPlayer" id="secondInningsPlayer">
+                            </div>
+                        </div>
+
+                    </div> -->
+        <div class="footerContainer" id="footerContainer"></div>
+      </div>
+      <!-- <div class="swiper-section">
+        <div class="swiper-container">
+          <div class="swiper-wrapper"></div>
+        </div>
+
+        <div class="swiper-button-up">
+          <img
+            src="./assets/chevron-up-solid.svg"
+            class="up-icon"
+            alt="up-icon"
+          />
+        </div>
+        <div class="swiper-button-down">
+          <img
+            src="./assets/chevron-down-solid.svg"
+            class="down-icon"
+            alt="down-icon"
+          />
+        </div>
+      </div> -->
+      <div class="swiper-section">
+        <div class="swipe-btn">
+          <div class="swiper-button-up">
+            <img src="./assets/Group 52@2x.png" class="up-icon" alt="up-icon" />
+          </div>
+          <div class="swiper-button-down">
+            <img
+              src="./assets/Group 51@2x.png"
+              class="down-icon"
+              alt="down-icon"
+            />
+          </div>
+        </div>
+        <div class="swiper-container">
+          <div class="swiper-wrapper"></div>
+        </div>
+      </div>
+
+      <div class="canvas" id="canvas"></div>
+      <div id="tap-to-place" class="tapToPlace">
+        <span class="tabContent">Tap to Place</span>
+      </div>
+    </div>
+  </body>
+  <script type="module" src="./js/config.js"></script>
+  <script type="module" src="./js/ui.js"></script>
+</html>

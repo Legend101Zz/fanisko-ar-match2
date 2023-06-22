@@ -1,0 +1,89 @@
+.swiper-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  width: 100%;
+  height: 68px;
+  border-radius: 50%;
+  flex-direction: column;
+  display: flex;
+  position: relative;
+  top: 10px;
+}
+
+._playerName {
+  color: #fff;
+  text-align: center;
+  padding-top: 21px;
+  font-size: 12px;
+}
+
+.tapToPlace {
+  text-align: center;
+  width: 150px;
+  color: #ddb578;
+  background-color: #f0f0f0;
+  border: 3px solid #ddb578;
+  border-radius: 10px;
+  padding: 10px;
+  position: fixed;
+  bottom: 225px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.swiper-slide img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  opacity: .5;
+  border-radius: 50%;
+  transition: filter .3s, transform .3s;
+  position: relative;
+  top: 10px;
+  left: 42px;
+}
+
+.swiper-slide-active img {
+  opacity: 1;
+  filter: brightness();
+  background-color: #fff;
+  transform: scale(1.2);
+}
+
+.swiper-slide-next img, .swiper-slide-prev img {
+  filter: brightness();
+}
+
+.up-icon, .down-icon {
+  color: #000;
+  cursor: pointer;
+  z-index: 1;
+  text-rendering: auto;
+  width: 20px;
+  font-size: 25px;
+}
+
+.up-icon {
+  position: absolute;
+}
+
+.swiper-section {
+  height: 260px;
+}
+
+.btn-container {
+  position: relative;
+  top: 100px;
+  left: 30px;
+}
+
+@media (width <= 676px) {
+  .swiper-section {
+    top: 45px;
+  }
+}
+
+/*# sourceMappingURL=index.c92073ef.css.map */

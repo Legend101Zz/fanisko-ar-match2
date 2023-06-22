@@ -1,0 +1,21 @@
+{
+  "name": "fanisko",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel --https",
+    "build": "parcel build --public-url='./'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@zappar/zappar-threejs": "^2.3.0",
+    "three": "^0.150.1",
+    "parcel": "^2.9.1"
+  },
+  "devDependencies": {
+    "parcel": "^2.9.1"
+  }
+}

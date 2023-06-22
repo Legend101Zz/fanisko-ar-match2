@@ -1,0 +1,404 @@
+@font-face {
+    font-family: 'Goldman Sans';
+       src: url('../fonts/GoldmanSans_Bd.ttf') format('truetype');
+  }
+
+html, body {
+    background-color: rgb(174, 174, 174);
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Goldman Sans";
+ /* overflow: hidden;  */
+}
+.wrapper{
+    margin:auto;
+    width:100%;
+    height:100%;
+}
+#canvas{
+    position: absolute;
+    top: 0;
+    width:100%;
+    height:100%; 
+}
+.footerContainer{
+    z-index: 1;
+}
+.countryContainer{
+    position: relative;
+    z-index: 10;
+}
+.up-icon{
+    width:70px;
+    /* rotate: 269deg; */
+}
+.down-icon {
+    position: absolute;
+    width:65px;
+    /* rotate: 270deg; */
+}
+.swiper-section {
+    position: relative;
+    top: 120px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 244px;
+}
+.swipe-btn{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 34px;
+    right: 15px;
+    width: 302px;
+  }
+
+  .swiper-slide-active{
+    background-color: rgb(162, 149, 71);
+    width: 68px !important;
+  }
+
+
+@media (min-width:320px) {
+.ui-wrapper{
+    position: absolute;
+    /* background-color: red; */
+    height: 100%;
+    width: 100%;
+}
+.headerContainer{
+    position: relative;
+    height: 10%;
+    width: 100%;
+    z-index: 100;
+}
+.headerContainer img{
+    margin-top:-15px;
+    width: 100%;
+    /* margin-left:4% ; */
+}
+/* -------------------------------------------------------------------COUNTRY */
+.countryContainer{
+    /* background-color: green; */
+    /* height: 7%; */
+    width:30%;
+    float: left;
+    margin-top:8%;
+    margin-left:5%;
+}
+ .inningsOneCountryWrapper {
+    /* background-color: blue; */
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+.inningsTwoCountryWrapper{
+    /* background-color: yellow; */
+    float: right;
+    width: 50%;
+    text-align: center;
+}
+.inningsOneCountryWrapper p , .inningsTwoCountryWrapper p{
+    background-color: black;
+    font-size: 14px;
+    color:white;
+    border-radius: 8px; 
+    border: 1px solid white;
+    padding-left:2px;
+    padding-right:2px;
+     padding-top: 8px; 
+    padding-bottom: 8px;
+    width: 80%;
+    margin:auto
+}
+/* ----------------------------------------------------------RIGHT SCORE */
+.teamScoreContainer{
+    position: relative;
+    float: right;
+    width: 125px;
+    margin-top: 32px;
+    margin-right: 1px;
+    z-index:100;
+}
+
+.teamFlagContainer{
+    /* background-color: blue; */
+    float:left
+}
+.teamFlagContainer img{
+    width:45px;
+    border-radius: 3px;
+    margin-top:-7px;
+}
+
+.scoreWrapper{
+    /* background-color: blueviolet; */
+    float: right;
+    margin-right:10px;
+}
+.scoreWrapper h1{
+    margin: 0;
+    font-size: 15px;
+    color:white;
+}
+.scoreWrapper p{
+    margin: 0;
+    font-size:10px;
+    color:white;
+    /* background-color: red; */
+    /* width:50%; */
+}
+/*------------------------------------------------------------ PLAYER SCROLLER */
+.playerScrollerContainer{
+    /* background-color: brown; */
+    margin-top:50%;
+    width: 50px;
+    height:15%;
+    margin-left:5%;           
+}
+.playerScrollerContainer img{
+   
+    display: block;
+   margin-left:auto;
+   margin-right:auto;
+}
+.inningsContainer{
+    width:100%;
+    height:100%;
+}
+.firstInningsPlayer{
+    /* background-color: grey; */
+    width:100%;
+    height:100%;
+    overflow-y: hidden;
+}
+.secondInningsPlayer{
+    /* background-color: green; */
+    width:100%;
+    height:100%;
+    overflow-y: hidden;
+    display: none;
+}
+
+/*------------------------------------------------------------------ FOOTER */
+.footerContainer{
+    /* background-color: grey; */
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    text-align:center;
+}
+.scoreList{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0px;
+}
+.footerContainer ul{
+    /* background-color:yellow;  */
+    /* margin:auto;
+    width:100%; */
+    
+    /* float:left */
+}
+.footerContainer ul li{
+    list-style: none;
+    background-color: black;
+    padding: 7px 15px 6px 15px;
+    font-size: 14px;
+    margin: 0px 6px;
+    border-radius: 5px;
+}
+.swiper-container{
+    height: 173px;
+    width: 205px;
+}
+.swiper-slide img{
+    width: 50px;
+    height: 51px;
+    top: 9px;
+    left: 9px;
+}
+
+
+}
+
+
+        /* ----------------------------------------------MEDIA 480-- */
+@media (min-width:480px) {
+.ui-wrapper{
+    /* background-color: bisque;  */
+}
+.headerContainer{
+  /* background-color:black; */
+  /* height: 1%;             */
+}
+.headerContainer img{
+  /* margin-top:2%; */
+  /* width: 100px; */
+  /* margin-right:50px; */
+  float:right;
+}
+/* -------------------------------------------------------------------COUNTRY */
+.countryContainer {
+    position: absolute;
+    width: 15%;
+    /* float: left; */
+    height: 28px;
+    bottom: 117px;
+    left: 26px;
+}
+
+.inningsOneCountryWrapper p , .inningsTwoCountryWrapper p{
+    font-size: 14px;           
+    padding-top: 6px; 
+    padding-bottom: 6px;
+   
+}
+/* ----------------------------------------------------------RIGHT SCORE */
+.teamScoreContainer{
+    position: relative;
+    width: 107px;
+    margin-top: -25px;
+    margin-left: 500px;
+    padding-right: 44px;
+    z-index: 100;
+}
+
+.teamFlagContainer{
+float:left
+}
+.teamFlagContainer img{
+width:45px;
+border-radius: 5px;
+}
+.scoreWrapper{        
+margin-right:15px;
+}
+.scoreWrapper{
+/* background-color: blueviolet; */
+float: right;
+margin-right:0px;
+}
+.scoreWrapper h1{
+margin: 0;
+font-size: 15px;
+color:white;
+}
+.scoreWrapper p{
+margin: 0;
+font-size:10px;
+color:white;
+}
+/*------------------------------------------------------------ PLAYER SCROLLER */
+.playerScrollerContainer{
+    /* background-color: brown; */
+    margin-top:5%;
+    width: 50px;
+    height:15%;
+    margin-left:5%;           
+}
+.upArrow{
+    /* background-color: cadetblue; */
+    margin-top:-15%;
+}
+.playerScrollerContainer img{
+    /* margin-top:5%; */
+    display: block;
+   margin-left:auto;
+   margin-right:auto;
+}
+.firstInningsPlayer{
+    /* background-color: grey; */
+    width:100%;
+    height:100%;
+    overflow-y: hidden;
+}
+.secondInningsPlayer{
+    /* background-color: green; */
+    width:100%;
+    height:100%;
+    overflow-y: hidden;
+    display: none;
+}
+/*------------------------------------------------------------------ FOOTER */
+.footerContainer{
+width: 50%;
+bottom: 8%;
+margin-left:45%;       
+}
+.footerContainer ul li{
+border: 0px;
+}
+
+
+.up-icon{
+    /* rotate: 269deg; */
+}
+.down-icon {
+    /* rotate: 270deg; */
+}
+}
+
+.footerContainer{
+    bottom: 100px;
+  }
+
+@media (min-width:760px) {
+    .swiper-slide img {
+        /* top: -6px; */
+        left: 5px;
+        width: 70px;
+        height: 73px;
+    }
+    .swiper-container {
+        height: 176px;
+        width: 273px;
+    }
+    
+}
+
+@media(max-width:767px){
+    .swipe-btn {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        top: 14px;
+        width: 242px;
+        right: 32px;
+    }
+}
+
+.inningsOneCountry:focus {
+    color: #a29547;
+	border-color:#a29547;
+}
+
+.inningsTwoCountry:focus {
+    color: #a29547;
+	border-color:#a29547;
+}
+
+
+
+
+ 
+
+@media (min-width:1440px) {
+    .up-icon {
+        /* rotate: 269deg; */
+        width: 27px;
+    }
+    .down-icon {
+        position: absolute;
+        /* rotate: 270deg; */
+        width: 27px;
+    }
+}
+
+.scoreList ul li:active{
+    color: red;
+}
