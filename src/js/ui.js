@@ -131,6 +131,18 @@ const addPlayer = (data, divId) => {
     // console.log(playerName)
   });
 
+  // var swiper = new Swiper(".swiper-container", {
+  //   direction: "horizontal",
+  //   centeredSlides: true,
+  //   spaceBetween: 5,
+  //   loop: true,
+  //   slidesPerView: 3,
+  //   navigation: {
+  //     nextEl: ".swiper-button-down",
+  //     prevEl: ".swiper-button-up",
+  //   },
+  // });
+
   var swiper = new Swiper(".swiper-container", {
     direction: "horizontal",
     centeredSlides: true,
@@ -140,6 +152,28 @@ const addPlayer = (data, divId) => {
     navigation: {
       nextEl: ".swiper-button-down",
       prevEl: ".swiper-button-up",
+    },
+    on: {
+      init: function (e) {
+        const index_currentSlide = e.activeIndex;
+
+        const getActive = e.slides[index_currentSlide].querySelector("img");
+        // console.log(e.slides);
+        let id = getActive.id;
+        console.log(id);
+        // console.log("itswoekinggf");
+        playersRunDetails(id);
+      },
+      slideChange: function (e) {
+        const index_currentSlide = e.activeIndex;
+
+        const getActive = e.slides[index_currentSlide].querySelector("img");
+        // console.log(e.slides);
+        let id = getActive.id;
+        console.log(id);
+        // console.log("itswoekinggf");
+        playersRunDetails(id);
+      },
     },
   });
 };
