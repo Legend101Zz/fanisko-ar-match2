@@ -155,14 +155,19 @@ const addPlayer = (data, divId) => {
     },
     on: {
       init: function (e) {
+        console.log("initial__function");
         const index_currentSlide = e.activeIndex;
 
         const getActive = e.slides[index_currentSlide].querySelector("img");
         // console.log(e.slides);
-        let id = getActive.id;
-        console.log(id);
-        // console.log("itswoekinggf");
-        playersRunDetails(id);
+        // let id = getActive.id;
+        // console.log(id);
+        // // console.log("itswoekinggf");
+        // playersRunDetails(id);
+        function removeColor() {
+          var ele = e.slides[index_currentSlide];
+          ele.style.removeProperty("background-color");
+        }
       },
       slideChange: function (e) {
         const index_currentSlide = e.activeIndex;
@@ -207,6 +212,28 @@ const scores = (runData) => {
     li.innerHTML = data.run;
     li.setAttribute("style", `color:${data.color};`);
     li.setAttribute("id", `${data.id}`);
+
+    // default border style
+    li.style.border = "2px solid transparent";
+    console.log("li_here__-->", li);
+    // Add click event listener
+
+    li.addEventListener("click", () => {
+      // Removing golden border from all buttons
+      console.log("hit__here--->");
+      runData.map((item) => {
+        const button = document.getElementById(`${item.id}`);
+        button.style.border = "2px solid transparent";
+      });
+
+      // golden border to the clicked button
+      li.style.border = "2px solid goldenrod";
+    });
+    const newHtml = li.innerHTML.toLowerCase();
+    if (newHtml == "all") {
+      li.style.border = "2px solid goldenrod";
+    }
+
     ul.appendChild(li);
   });
   cont.appendChild(ul);
