@@ -46,14 +46,7 @@
   left: 42px;
 }
 
-.swiper-slide-active img {
-  opacity: 1;
-  filter: brightness();
-  background-color: #fff;
-  transform: scale(1.2);
-}
-
-.swiper-slide-next img, .swiper-slide-prev img {
+.swiper-slide-active img, .swiper-slide-next img, .swiper-slide-prev img {
   filter: brightness();
 }
 

@@ -1,6 +1,7 @@
 // import {displayRunMesh,wagonWheel} from './config.js';
 import { displayRunMesh, wagonWheel, displayLines } from "./config.js";
-
+var initialLoad = true;
+var initialLoad2 = true;
 $(document).ready(function () {
   let _resData;
   $.ajax({
@@ -66,7 +67,18 @@ $(document).ready(function () {
     );
   });
   $(".swiper-wrapper").click((e) => {
-    playersRunDetails(e.target.id);
+    // console.log(e.target.id);
+    if (initialLoad2) {
+      console.log(e);
+      e.target.style.border = "5px solid rgb(162, 149, 71)";
+      // e.target.style.width = "68px";
+      e.target.style.filter = `brightness(${100}%)`;
+      e.target.style.transform = "scale(1.2)";
+      e.target.style.backgroundColor = "white";
+      e.target.style.opacity = "1";
+      playersRunDetails(e.target.id);
+    }
+    initialLoad2 = false;
   });
 });
 const runsDisplay = (score, wicket, overs, teamLogo) => {
@@ -154,30 +166,60 @@ const addPlayer = (data, divId) => {
       prevEl: ".swiper-button-up",
     },
     on: {
-      init: function (e) {
-        console.log("initial__function");
-        const index_currentSlide = e.activeIndex;
-
-        const getActive = e.slides[index_currentSlide].querySelector("img");
-        // console.log(e.slides);
-        // let id = getActive.id;
-        // console.log(id);
-        // // console.log("itswoekinggf");
-        // playersRunDetails(id);
-        function removeColor() {
-          var ele = e.slides[index_currentSlide];
-          ele.style.removeProperty("background-color");
-        }
-      },
       slideChange: function (e) {
-        const index_currentSlide = e.activeIndex;
+        if (!initialLoad) {
+          const index_currentSlide = e.activeIndex;
 
-        const getActive = e.slides[index_currentSlide].querySelector("img");
-        // console.log(e.slides);
-        let id = getActive.id;
-        console.log(id);
-        // console.log("itswoekinggf");
-        playersRunDetails(id);
+          const getActive = e.slides[index_currentSlide].querySelector("img");
+          $(getActive).css({
+            border: "5px solid rgb(162, 149, 71)",
+            filter: "brightness(100%)",
+            transform: "scale(1.2)",
+            backgroundColor: "white",
+            opacity: "1",
+          });
+          const getPrevious =
+            e.slides[index_currentSlide - 1].querySelector("img");
+          const getNext = e.slides[index_currentSlide + 1].querySelector("img");
+
+          console.log(getNext, getPrevious);
+          // Remove added styles
+          $(getPrevious).css({
+            border: "",
+            filter: "brightness(100%)",
+            transform: "",
+            backgroundColor: "",
+            opacity: "",
+          });
+          $(getNext).css({
+            border: "",
+            filter: "brightness(100%)",
+            transform: "",
+            backgroundColor: "",
+            opacity: "",
+          });
+          // getActive.style.transform = "scale(1.2)";
+
+          // getActive.style.backgroundColor = "white";
+
+          // getPrevious.style.removeProperty("transform");
+          // getPrevious.style.removeProperty("backgroundColor");
+          // console.log(e.slides);
+          let id = getActive.id;
+
+          var ele = e.slides[index_currentSlide];
+          var elePre = e.slides[index_currentSlide - 1];
+          console.log("initial__function", ele);
+          // ele.style.backgroundColor = "rgb(162, 149, 71)";
+          // ele.style.width = "68px";
+
+          // elePre.style.removeProperty("width");
+          // elePre.style.removeProperty("backgroundColor");
+          // console.log(id);
+          // console.log("itswoekinggf");
+          playersRunDetails(id);
+        }
+        initialLoad = false;
       },
     },
   });

@@ -576,10 +576,12 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"efi6n":[function(require,module,exports) {
 // import {displayRunMesh,wagonWheel} from './config.js';
 var _configJs = require("./config.js");
+var initialLoad = true;
+var initialLoad2 = true;
 $(document).ready(function() {
     let _resData;
     $.ajax({
-        url: "https://fanisko-stadium-ar-backend.onrender.com/fanisko/api",
+        url: "https://fanisko-stadium-ar-backend.onrender.com/fanisko/api/match2",
         type: "GET",
         success: function(match) {
             $.ajax({
@@ -648,7 +650,18 @@ $(document).ready(function() {
         runsDisplay(_resData.second_innings_score, _resData.second_innings_wicket, _resData.second_innings_over, _resData.second_innings_team_logo);
     });
     $(".swiper-wrapper").click((e)=>{
-        playersRunDetails(e.target.id);
+        // console.log(e.target.id);
+        if (initialLoad2) {
+            console.log(e);
+            e.target.style.border = "5px solid rgb(162, 149, 71)";
+            // e.target.style.width = "68px";
+            e.target.style.filter = `brightness(${100}%)`;
+            e.target.style.transform = "scale(1.2)";
+            e.target.style.backgroundColor = "white";
+            e.target.style.opacity = "1";
+            playersRunDetails(e.target.id);
+        }
+        initialLoad2 = false;
     });
 });
 const runsDisplay = (score, wicket, overs, teamLogo)=>{
@@ -704,6 +717,17 @@ const addPlayer = (data, divId)=>{
         divId.appendChild(divTag);
     // console.log(playerName)
     });
+    // var swiper = new Swiper(".swiper-container", {
+    //   direction: "horizontal",
+    //   centeredSlides: true,
+    //   spaceBetween: 5,
+    //   loop: true,
+    //   slidesPerView: 3,
+    //   navigation: {
+    //     nextEl: ".swiper-button-down",
+    //     prevEl: ".swiper-button-up",
+    //   },
+    // });
     var swiper = new Swiper(".swiper-container", {
         direction: "horizontal",
         centeredSlides: true,
@@ -713,12 +737,62 @@ const addPlayer = (data, divId)=>{
         navigation: {
             nextEl: ".swiper-button-down",
             prevEl: ".swiper-button-up"
+        },
+        on: {
+            slideChange: function(e) {
+                if (!initialLoad) {
+                    const index_currentSlide = e.activeIndex;
+                    const getActive = e.slides[index_currentSlide].querySelector("img");
+                    $(getActive).css({
+                        border: "5px solid rgb(162, 149, 71)",
+                        filter: "brightness(100%)",
+                        transform: "scale(1.2)",
+                        backgroundColor: "white",
+                        opacity: "1"
+                    });
+                    const getPrevious = e.slides[index_currentSlide - 1].querySelector("img");
+                    const getNext = e.slides[index_currentSlide + 1].querySelector("img");
+                    console.log(getNext, getPrevious);
+                    // Remove added styles
+                    $(getPrevious).css({
+                        border: "",
+                        filter: "brightness(100%)",
+                        transform: "",
+                        backgroundColor: "",
+                        opacity: ""
+                    });
+                    $(getNext).css({
+                        border: "",
+                        filter: "brightness(100%)",
+                        transform: "",
+                        backgroundColor: "",
+                        opacity: ""
+                    });
+                    // getActive.style.transform = "scale(1.2)";
+                    // getActive.style.backgroundColor = "white";
+                    // getPrevious.style.removeProperty("transform");
+                    // getPrevious.style.removeProperty("backgroundColor");
+                    // console.log(e.slides);
+                    let id = getActive.id;
+                    var ele = e.slides[index_currentSlide];
+                    var elePre = e.slides[index_currentSlide - 1];
+                    console.log("initial__function", ele);
+                    // ele.style.backgroundColor = "rgb(162, 149, 71)";
+                    // ele.style.width = "68px";
+                    // elePre.style.removeProperty("width");
+                    // elePre.style.removeProperty("backgroundColor");
+                    // console.log(id);
+                    // console.log("itswoekinggf");
+                    playersRunDetails(id);
+                }
+                initialLoad = false;
+            }
         }
     });
 };
 const playersRunDetails = (_playerId)=>{
     $.ajax({
-        url: "https://fanisko-stadium-ar-backend.onrender.com/fanisko/api",
+        url: "https://fanisko-stadium-ar-backend.onrender.com/fanisko/api/match2",
         type: "GET",
         success: function(match) {
             $.ajax({
@@ -744,6 +818,22 @@ const scores = (runData)=>{
         li.innerHTML = data.run;
         li.setAttribute("style", `color:${data.color};`);
         li.setAttribute("id", `${data.id}`);
+        // default border style
+        li.style.border = "2px solid transparent";
+        console.log("li_here__-->", li);
+        // Add click event listener
+        li.addEventListener("click", ()=>{
+            // Removing golden border from all buttons
+            console.log("hit__here--->");
+            runData.map((item)=>{
+                const button = document.getElementById(`${item.id}`);
+                button.style.border = "2px solid transparent";
+            });
+            // golden border to the clicked button
+            li.style.border = "2px solid goldenrod";
+        });
+        const newHtml = li.innerHTML.toLowerCase();
+        if (newHtml == "all") li.style.border = "2px solid goldenrod";
         ul.appendChild(li);
     });
     cont.appendChild(ul);

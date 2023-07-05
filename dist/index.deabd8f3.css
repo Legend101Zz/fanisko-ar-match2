@@ -61,11 +61,6 @@ html, body {
   right: 15px;
 }
 
-.swiper-slide-active {
-  background-color: #a29547;
-  width: 68px !important;
-}
-
 @media (width >= 320px) {
   .ui-wrapper {
     height: 100%;
